@@ -1,0 +1,23 @@
+<div id="<%= dom_id post %>"
+     data-controller="share"
+     data-share-url-value="<%= post_url(post) %>">
+  <p>
+    <strong>Title:</strong>
+    <%= content_tag(:p, post.title, data: {
+      share_target: "title"
+    }) %>
+  </p>
+  <p>
+    <strong>Body:</strong>
+    <%= content_tag(:div, post.body, data: {
+      share_target: "body"
+    }) %>
+  </p>
+  <%= button_to "Share", "", data: {
+    action: "click->share#share"
+  } %>
+  <%= content_tag(:p, "", class:"result", data: {
+    share_target: "result"
+  }) %>
+</div>
+
